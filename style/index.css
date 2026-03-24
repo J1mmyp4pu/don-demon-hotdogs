@@ -1,0 +1,335 @@
+/* ============================================================
+   DON DEMON HOT-DOGS — styles.css
+   Tema: Hell Metal / Street Food
+   ============================================================ */
+
+/* ── Variables ─────────────────────────────────────────────── */
+:root {
+  --red-hot:    #e81010;
+  --red-deep:   #8b0000;
+  --orange-fire:#ff6a00;
+  --yellow-tip: #ffd000;
+  --black:      #0a0a0a;
+  --black-mid:  #111111;
+  --white:      #ffffff;
+  --grey-smoke: #1e1e1e;
+  --font-metal: 'Metal Mania', cursive;
+  --font-title: 'Cinzel Decorative', serif;
+  --font-body:  'Oswald', sans-serif;
+}
+
+/* ── Reset & Base ───────────────────────────────────────────── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  background-color: var(--black);
+  color: var(--white);
+  font-family: var(--font-body);
+  overflow-x: hidden;
+  position: relative;
+}
+
+/* ── Background texture ─────────────────────────────────────── */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background:
+    radial-gradient(ellipse at 50% 0%,   rgba(232,16,16,.18) 0%, transparent 60%),
+    radial-gradient(ellipse at 50% 100%, rgba(139,0,0,.22)  0%, transparent 60%),
+    repeating-linear-gradient(
+      0deg,
+      transparent,
+      transparent 2px,
+      rgba(255,255,255,.015) 2px,
+      rgba(255,255,255,.015) 4px
+    );
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* ── Ember particles ────────────────────────────────────────── */
+.embers {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 1;
+  overflow: hidden;
+}
+
+.embers span {
+  position: absolute;
+  bottom: -20px;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--orange-fire);
+  box-shadow: 0 0 8px 2px var(--yellow-tip);
+  opacity: 0;
+  animation: rise var(--dur, 6s) var(--delay, 0s) infinite ease-in;
+}
+
+/* Distribute embers across width */
+.embers span:nth-child(1)  { left:5%;  --dur:5s;  --delay:0s;   width:4px; height:4px; }
+.embers span:nth-child(2)  { left:12%; --dur:7s;  --delay:1.2s; }
+.embers span:nth-child(3)  { left:22%; --dur:6s;  --delay:2s;   background:var(--red-hot); }
+.embers span:nth-child(4)  { left:33%; --dur:8s;  --delay:0.5s; width:5px; height:5px; }
+.embers span:nth-child(5)  { left:45%; --dur:5.5s;--delay:3s; }
+.embers span:nth-child(6)  { left:55%; --dur:9s;  --delay:1s;   background:var(--yellow-tip); }
+.embers span:nth-child(7)  { left:63%; --dur:6.5s;--delay:2.5s; }
+.embers span:nth-child(8)  { left:72%; --dur:7.5s;--delay:0.8s; width:4px; height:4px; }
+.embers span:nth-child(9)  { left:80%; --dur:5s;  --delay:1.7s; background:var(--red-hot); }
+.embers span:nth-child(10) { left:88%; --dur:8s;  --delay:3.5s; }
+.embers span:nth-child(11) { left:93%; --dur:6s;  --delay:0.3s; width:3px; height:3px; }
+.embers span:nth-child(12) { left:97%; --dur:7s;  --delay:2.2s; background:var(--yellow-tip); }
+
+@keyframes rise {
+  0%   { transform: translateY(0)   translateX(0)   scale(1);   opacity: .9; }
+  50%  { transform: translateY(-45vh) translateX(20px)  scale(1.2); opacity: .5; }
+  100% { transform: translateY(-95vh) translateX(-10px) scale(.4); opacity: 0; }
+}
+
+/* ── Flame bars ─────────────────────────────────────────────── */
+.flame-bar {
+  position: fixed;
+  left: 0; right: 0;
+  height: 5px;
+  background: linear-gradient(90deg,
+    var(--red-deep), var(--red-hot), var(--orange-fire),
+    var(--yellow-tip), var(--orange-fire), var(--red-hot), var(--red-deep));
+  background-size: 200% 100%;
+  animation: flameSlide 3s linear infinite;
+  z-index: 100;
+}
+.top-bar    { top: 0;    box-shadow: 0 0 18px 4px var(--red-hot); }
+.bottom-bar { bottom: 0; box-shadow: 0 0 18px 4px var(--red-hot); }
+
+@keyframes flameSlide {
+  0%   { background-position: 0% 0%; }
+  100% { background-position: 200% 0%; }
+}
+
+/* ── Hero section ───────────────────────────────────────────── */
+.hero-section {
+  position: relative;
+  z-index: 10;
+  padding-top: 30px;
+  padding-bottom: 30px;
+}
+
+/* ── Logo ───────────────────────────────────────────────────── */
+.logo-wrapper {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.logo-glow-ring {
+  position: absolute;
+  width: 320px;
+  height: 320px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(232,16,16,.35) 0%, transparent 70%);
+  animation: pulse-glow 2.5s ease-in-out infinite;
+  pointer-events: none;
+}
+
+@keyframes pulse-glow {
+  0%, 100% { transform: scale(1);    opacity: .8; }
+  50%       { transform: scale(1.08); opacity: 1;  }
+}
+
+.logo-img {
+  width: clamp(200px, 38vw, 300px);
+  height: auto;
+  position: relative;
+  z-index: 2;
+  filter: drop-shadow(0 0 22px rgba(232,16,16,.9))
+          drop-shadow(0 0 50px rgba(255,106,0,.5));
+  animation: logo-float 3.5s ease-in-out infinite;
+  transition: transform .3s ease;
+}
+
+.logo-img:hover {
+  transform: scale(1.05) rotate(-2deg);
+  filter: drop-shadow(0 0 32px rgba(232,16,16,1))
+          drop-shadow(0 0 70px rgba(255,106,0,.8));
+}
+
+@keyframes logo-float {
+  0%, 100% { transform: translateY(0);   }
+  50%       { transform: translateY(-8px); }
+}
+
+/* ── Brand title ────────────────────────────────────────────── */
+.brand-title {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: baseline;
+  gap: 0 14px;
+  line-height: 1;
+  letter-spacing: .02em;
+  text-transform: uppercase;
+}
+
+.title-don {
+  font-family: var(--font-metal);
+  font-size: clamp(2.2rem, 7vw, 4rem);
+  color: var(--white);
+  text-shadow:
+    0 0 10px var(--red-hot),
+    0 0 30px var(--red-hot),
+    2px 2px 0 var(--red-deep);
+  animation: flicker 4s infinite;
+}
+
+.title-demon {
+  font-family: var(--font-metal);
+  font-size: clamp(2.8rem, 9vw, 5.5rem);
+  color: var(--red-hot);
+  text-shadow:
+    0 0 12px var(--orange-fire),
+    0 0 40px var(--red-hot),
+    3px 3px 0 var(--red-deep);
+  animation: flicker 3s infinite .5s;
+}
+
+.title-hotdogs {
+  font-family: var(--font-title);
+  font-size: clamp(1.4rem, 5vw, 2.8rem);
+  color: var(--yellow-tip);
+  text-shadow:
+    0 0 8px var(--orange-fire),
+    0 0 24px var(--yellow-tip),
+    1px 1px 0 #8b5000;
+  letter-spacing: .06em;
+  animation: flicker 5s infinite 1s;
+}
+
+@keyframes flicker {
+  0%, 95%, 100% { opacity: 1; }
+  96%            { opacity: .85; }
+  97%            { opacity: 1; }
+  98%            { opacity: .7; }
+}
+
+/* ── Divider ─────────────────────────────────────────────────── */
+.divider-fire {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: clamp(200px, 50vw, 420px);
+}
+.divider-fire span.line {
+  flex: 1;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--red-hot), var(--orange-fire), var(--red-hot), transparent);
+}
+.divider-fire span:not(.line) {
+  font-size: 1.2rem;
+  animation: spin-flame 3s linear infinite;
+}
+@keyframes spin-flame {
+  0%   { transform: rotate(0deg)   scale(1);   }
+  50%  { transform: rotate(10deg)  scale(1.3); }
+  100% { transform: rotate(-10deg) scale(1);   }
+}
+
+/* ── Slogan ─────────────────────────────────────────────────── */
+.slogan {
+  font-family: var(--font-body);
+  font-size: clamp(1rem, 3.2vw, 1.5rem);
+  font-weight: 600;
+  letter-spacing: .18em;
+  text-transform: uppercase;
+  color: transparent;
+  background: linear-gradient(90deg, var(--orange-fire), var(--yellow-tip), var(--orange-fire));
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  background-clip: text;
+  animation: shine-text 3s linear infinite;
+}
+
+@keyframes shine-text {
+  0%   { background-position: 0% center; }
+  100% { background-position: 200% center; }
+}
+
+/* ── Buttons ─────────────────────────────────────────────────── */
+.btn-demon {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--font-body);
+  font-size: clamp(.95rem, 2.5vw, 1.15rem);
+  font-weight: 600;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  text-decoration: none;
+  padding: 14px 38px;
+  border-radius: 4px;
+  position: relative;
+  overflow: hidden;
+  border: 2px solid var(--red-hot);
+  transition: transform .25s ease, box-shadow .25s ease;
+  cursor: pointer;
+}
+
+/* Shimmer sweep on hover */
+.btn-demon::before {
+  content: '';
+  position: absolute;
+  top: 0; left: -110%;
+  width: 80%;
+  height: 100%;
+  background: linear-gradient(120deg, transparent, rgba(255,255,255,.18), transparent);
+  transition: left .4s ease;
+}
+.btn-demon:hover::before { left: 130%; }
+
+/* Menu button */
+.btn-menu {
+  background: linear-gradient(135deg, var(--red-deep) 0%, var(--red-hot) 100%);
+  color: var(--white);
+  box-shadow: 0 4px 18px rgba(232,16,16,.5);
+}
+.btn-menu:hover {
+  transform: translateY(-3px) scale(1.04);
+  box-shadow: 0 8px 28px rgba(232,16,16,.8), 0 0 40px rgba(255,106,0,.4);
+  color: var(--white);
+}
+
+/* Social button */
+.btn-social {
+  background: transparent;
+  color: var(--red-hot);
+  border-color: var(--red-hot);
+  box-shadow: inset 0 0 0 0 var(--red-hot);
+  transition: box-shadow .3s ease, color .3s ease, transform .25s ease;
+}
+.btn-social:hover {
+  box-shadow: inset 0 0 0 50px var(--red-hot);
+  color: var(--white);
+  transform: translateY(-3px) scale(1.04);
+}
+
+/* ── Responsive tweaks ─────────────────────────────────────── */
+@media (max-width: 480px) {
+  .logo-glow-ring { width: 240px; height: 240px; }
+  .btn-demon { padding: 12px 28px; }
+  .brand-title { gap: 4px 8px; }
+}
+
+/* ── Button icons (Bootstrap Icons) ─────────────────────────── */
+.btn-icon {
+  font-size: 1.1em;
+  vertical-align: -0.1em;
+  transition: transform .2s ease;
+}
+.btn-demon:hover .btn-icon {
+  transform: scale(1.25) rotate(-5deg);
+}

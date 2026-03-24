@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Menú — Don Demon Hot-Dogs</title>
+
+  <!-- Bootstrap 5 -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"/>
+  <!-- Bootstrap Icons -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet"/>
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Metal+Mania&family=Cinzel+Decorative:wght@700;900&family=Oswald:wght@300;400;600;700&display=swap" rel="stylesheet"/>
+  <!-- CSS -->
+  <link rel="stylesheet" href="style/menu.css"/>
+</head>
+<body>
+
+  <!-- Ember particles -->
+  <div class="embers" aria-hidden="true">
+    <span></span><span></span><span></span><span></span>
+    <span></span><span></span><span></span><span></span>
+    <span></span><span></span><span></span><span></span>
+  </div>
+
+  <!-- Top flame bar -->
+  <div class="flame-bar top-bar"></div>
+
+  <!-- Header / Nav -->
+  <header class="menu-header d-flex align-items-center justify-content-between px-4 py-3">
+    <a href="index.html" class="back-btn">
+      <i class="bi bi-arrow-left-circle-fill"></i>
+      <span>Inicio</span>
+    </a>
+    <div class="header-logo d-flex align-items-center gap-2">
+      <img src="img/logotipo.png" alt="Logo" class="header-logo-img"/>
+      <span class="header-brand">Don Demon</span>
+    </div>
+  </header>
+
+  <!-- Page title -->
+  <div class="page-title-wrapper text-center py-4">
+    <h1 class="page-title">
+      <span class="flame-text">El Menú</span>
+      <span class="page-title-sub">del Infierno</span>
+    </h1>
+    <div class="title-divider"><span></span><i class="bi bi-fire"></i><span></span></div>
+  </div>
+
+  <main class="container pb-5">
+
+    <!-- ═══════════════ COMBOS ═══════════════ -->
+    <section class="menu-section mb-5">
+      <div class="section-header">
+        <span class="section-badge"><i class="bi bi-stars"></i> Combos</span>
+      </div>
+
+      <div class="row g-4">
+
+        <!-- Combo Infernal -->
+        <div class="col-12 col-md-6">
+          <div class="menu-card featured">
+            <div class="card-fire-accent"></div>
+            <div class="card-body-inner">
+              <div class="card-top d-flex justify-content-between align-items-start">
+                <div>
+                  <span class="card-tag">⚡ Más vendido</span>
+                  <h2 class="card-title">Combo Infernal</h2>
+                </div>
+                <div class="price-badge">$130</div>
+              </div>
+              <p class="card-desc">
+                Hot dog <strong>Jumbo</strong> fundido en queso y tocino,
+                papas a la francesa crocantes + tu bebida favorita.
+              </p>
+              <div class="card-icons">
+                <span title="Hot dog jumbo">🌭</span>
+                <span title="Queso fundido">🧀</span>
+                <span title="Tocino">🥓</span>
+                <span title="Papas">🍟</span>
+                <span title="Bebida">🥤</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Combo Diabóloco -->
+        <div class="col-12 col-md-6">
+          <div class="menu-card">
+            <div class="card-body-inner">
+              <div class="card-top d-flex justify-content-between align-items-start">
+                <div>
+                  <h2 class="card-title">Combo Diabóloco</h2>
+                </div>
+                <div class="price-badge">$110</div>
+              </div>
+              <p class="card-desc">
+                Hot dog <strong>Chico</strong> fundido en queso y tocino,
+                papas a la francesa crocantes + tu bebida favorita.
+              </p>
+              <div class="card-icons">
+                <span title="Hot dog chico">🌭</span>
+                <span title="Queso fundido">🧀</span>
+                <span title="Tocino">🥓</span>
+                <span title="Papas">🍟</span>
+                <span title="Bebida">🥤</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Boneles -->
+        <div class="col-12">
+          <div class="menu-card boneles-card">
+            <div class="card-body-inner d-flex flex-wrap justify-content-between align-items-center gap-3">
+              <div class="flex-grow-1">
+                <h2 class="card-title">8 Boneles + Papas + Bebida</h2>
+                <p class="card-desc mb-2">
+                  8 piezas de boneles crujientes, papas a la francesa y tu bebida. Elige tu salsa:
+                </p>
+                <div class="sauce-chips">
+                  <span class="sauce-chip bbq">🍖 BBQ</span>
+                  <span class="sauce-chip buffalo">🌶️ Búfalo</span>
+                </div>
+              </div>
+              <div class="price-badge price-lg">$150</div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ═══════════════ HOT DOGS SOLOS ═══════════════ -->
+    <section class="menu-section mb-5">
+      <div class="section-header">
+        <span class="section-badge"><i class="bi bi-lightning-charge-fill"></i> Hot Dogs</span>
+      </div>
+
+      <div class="row g-4">
+        <div class="col-12 col-sm-6">
+          <div class="menu-card hotdog-card">
+            <div class="card-body-inner d-flex justify-content-between align-items-center">
+              <div>
+                <h2 class="card-title">Hot Dog Jumbo</h2>
+                <p class="card-desc mb-0">El clásico tamaño king 👑</p>
+              </div>
+              <div class="price-badge">$100</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-12 col-sm-6">
+          <div class="menu-card hotdog-card">
+            <div class="card-body-inner d-flex justify-content-between align-items-center">
+              <div>
+                <h2 class="card-title">Hot Dog Chico</h2>
+                <p class="card-desc mb-0">Perfecto para el antojo 🔥</p>
+              </div>
+              <div class="price-badge">$80</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════════ ADEREZOS ═══════════════ -->
+    <section class="menu-section mb-5">
+      <div class="section-header">
+        <span class="section-badge secondary-badge"><i class="bi bi-droplet-fill"></i> Aderezos</span>
+      </div>
+      <div class="extras-grid">
+        <div class="extra-chip">🟡 Mayonesa</div>
+        <div class="extra-chip">🔴 Catsup</div>
+        <div class="extra-chip">🟠 Mostaza</div>
+        <div class="extra-chip">🍯 Cebolla Acaramelizada</div>
+        <div class="extra-chip">🧀 Queso</div>
+        <div class="extra-chip">🌶️ Chipotle</div>
+        <div class="extra-chip">🍖 BBQ</div>
+        <div class="extra-chip">🔥 Búfalo</div>
+        <div class="extra-chip">🫙 Salsa Habanero Cremosa</div>
+        <div class="extra-chip">🍖 Salsa de Chile p/ Costillas</div>
+        <div class="extra-chip">🥑 Guacamole de Habanero</div>
+        <div class="extra-chip">🤍 Ranch</div>
+        <div class="extra-chip">🧀 Queso Extra</div>
+        <div class="extra-chip">🥓 Tocino</div>
+      </div>
+    </section>
+
+    <!-- ═══════════════ FRITURAS ═══════════════ -->
+    <section class="menu-section mb-5">
+      <div class="section-header">
+        <span class="section-badge secondary-badge"><i class="bi bi-bag-fill"></i> Frituras</span>
+      </div>
+      <div class="extras-grid">
+        <div class="extra-chip">🔵 Doritos</div>
+        <div class="extra-chip">🔴 Cheetos Flamin' Hot</div>
+        <div class="extra-chip">🟡 Tostitos</div>
+        <div class="extra-chip">🥒 Pepinillos</div>
+        <div class="extra-chip">🌶️ Chiles Jalapeños</div>
+        <div class="extra-chip">🥓 Tocino Deshidratado</div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Bottom flame bar -->
+  <div class="flame-bar bottom-bar"></div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
